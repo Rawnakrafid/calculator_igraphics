@@ -1,0 +1,1260 @@
+#include "iGraphics.h"
+#define screenlength 850
+#define screenwidth 380
+int setmode = 3;
+char display_store[100];
+int x = 300, y = 300, r = 20;
+/*
+	function iDraw() is called again and again by the system.
+
+	*/
+
+int row1 = 25, row2 = 95, row3 = 165, row4 = 235, row5 = 305;
+int column1 = 60, column2 = 120, column3 = 180, column4 = 240, column5 = 300, column6 = 360, column7 = 420, column8 = 480, column9 = 540, column10 = 600;
+void iDraw()
+{
+
+	// place your drawing codes here
+	iClear();
+
+	if (setmode == 1)
+	{
+		// 1st row;
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 85, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(45, 80, "0", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(120, 85, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(120, 80, ".", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(190, 85, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(175, 80, "x10", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(260, 85, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(246, 80, "Ans", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 85, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(325, 80, "=", GLUT_BITMAP_HELVETICA_18);
+
+		// 2nd row
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 145, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(45, 140, "1", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		;
+		iFilledCircle(120, 145, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(115, 140, "2", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(190, 145, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(185, 140, "3", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(260, 145, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(255, 140, "+", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 145, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(325, 140, "-", GLUT_BITMAP_HELVETICA_18);
+		// 3rd row
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 205, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(45, 200, "4", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(120, 205, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(115, 200, "5", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(190, 205, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(185, 200, "6", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(260, 205, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(255, 200, "X", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 205, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(325, 200, "/", GLUT_BITMAP_HELVETICA_18);
+
+		// 4th row
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 265, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(45, 260, "7", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(120, 265, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(115, 260, "8", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(190, 265, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(185, 260, "9", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(260, 265, 25, 100);
+		iSetColor(0, 0, 255);
+		iText(245, 260, "DEL", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 265, 25, 100);
+		iSetColor(255, 0, 0);
+		iText(320, 260, "AC", GLUT_BITMAP_HELVETICA_18);
+
+		// 5th row
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 325, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(37, 320, "sin", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(120, 325, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(107, 320, "cos", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(190, 325, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(178, 320, "tan", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(260, 325, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(240, 320, "S<=>D", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 325, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(320, 320, "ln", GLUT_BITMAP_8_BY_13);
+
+		// 6th row
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 385, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(37, 380, "x^2", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(120, 385, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(107, 380, "x^3", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(190, 385, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(178, 380, "x^n", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(260, 385, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(245, 380, "x^-1", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 385, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(320, 380, "%", GLUT_BITMAP_HELVETICA_18);
+
+		// 7th row
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 445, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(35, 440, "arcsin", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(120, 445, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(100, 440, "arccos", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(190, 445, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(173, 440, "arctan", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(260, 445, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(250, 440, "sqrt", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 445, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(315, 440, "cubrt", GLUT_BITMAP_HELVETICA_12);
+
+		// 8th row
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 505, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(45, 500, "e", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(120, 505, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(110, 500, "log", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(190, 505, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(183, 500, "pi", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(260, 505, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(258, 500, "!", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 505, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(310, 500, "Dg/Rd", GLUT_BITMAP_8_BY_13);
+
+		//
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 565, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(45, 560, "(", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(120, 565, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(120, 560, ")", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(190, 565, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(175, 560, "Conv", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(260, 565, 25, 100);
+		iSetColor(255, 255, 0);
+		iText(245, 560, "Mode", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 565, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(327, 560, "h", GLUT_BITMAP_HELVETICA_18);
+
+		// last row
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(50, 625, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(30, 620, "Theme", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(0, 100, 255);
+		iFilledRectangle(85, 600, 200, 50);
+		iSetColor(0, 0, 0);
+		iText(110, 620, "RAWNAKULATOR", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(255, 255, 255);
+		iFilledCircle(330, 625, 25, 100);
+		iSetColor(0, 0, 0);
+		iText(318, 620, "On", GLUT_BITMAP_HELVETICA_18);
+
+		// display
+		iSetColor(52, 219, 235);
+		iFilledRectangle(10, 670, 360, 160);
+	}
+
+	else if (setmode == 2)
+	{
+		iSetColor(80, 220, 100);
+		iFilledCircle(50, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 85, 25, 100);
+		iText(45, 80, "0", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(120, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 85, 25, 100);
+		iText(120, 80, ".", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(190, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 85, 25, 100);
+		iText(175, 80, "x10", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(260, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 85, 25, 100);
+		iText(246, 80, "Ans", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(330, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 85, 25, 100);
+		iText(325, 80, "=", GLUT_BITMAP_HELVETICA_18);
+
+		// 2nd row
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(50, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 145, 25, 100);
+		iText(45, 140, "1", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		;
+		iFilledCircle(120, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 145, 25, 100);
+		iText(115, 140, "2", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(190, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 145, 25, 100);
+		iText(185, 140, "3", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(260, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 145, 25, 100);
+		iText(255, 140, "+", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(330, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 145, 25, 100);
+		iText(325, 140, "-", GLUT_BITMAP_HELVETICA_18);
+		// 3rd row
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(50, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 205, 25, 100);
+		iText(45, 200, "4", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(120, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 205, 25, 100);
+		iText(115, 200, "5", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(190, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 205, 25, 100);
+		iText(185, 200, "6", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(260, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 205, 25, 100);
+		iText(255, 200, "X", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(330, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 205, 25, 100);
+		iText(325, 200, "/", GLUT_BITMAP_HELVETICA_18);
+
+		// 4th row
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(50, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 265, 25, 100);
+		iText(45, 260, "7", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(120, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 265, 25, 100);
+		iText(115, 260, "8", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(190, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 265, 25, 100);
+		iText(185, 260, "9", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(260, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 265, 25, 100);
+		iText(245, 260, "DEL", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(80, 220, 100);
+		iFilledCircle(330, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 265, 25, 100);
+		iText(320, 260, "AC", GLUT_BITMAP_HELVETICA_18);
+
+		// 5th row
+		iSetColor(21, 71, 52);
+		iFilledCircle(50, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 325, 25, 100);
+		iText(37, 320, "sin", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(120, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 325, 25, 100);
+		iText(107, 320, "cos", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(190, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 325, 25, 100);
+		iText(178, 320, "tan", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(260, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 325, 25, 100);
+		iText(240, 320, "S<=>D", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(330, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 325, 25, 100);
+		iText(320, 320, "ln", GLUT_BITMAP_8_BY_13);
+
+		// 6th row
+		iSetColor(21, 71, 52);
+		iFilledCircle(50, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 385, 25, 100);
+		iText(37, 380, "x^2", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(120, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 385, 25, 100);
+		iText(107, 380, "x^3", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(190, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 385, 25, 100);
+		iText(178, 380, "x^n", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(260, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 385, 25, 100);
+		iText(245, 380, "x^-1", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(330, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 385, 25, 100);
+		iText(320, 380, "%", GLUT_BITMAP_HELVETICA_18);
+
+		// 7th row
+		iSetColor(21, 71, 52);
+		iFilledCircle(50, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 445, 25, 100);
+		iText(35, 440, "arcsin", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(120, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 445, 25, 100);
+		iText(100, 440, "arccos", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(190, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 445, 25, 100);
+		iText(173, 440, "arctan", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(260, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 445, 25, 100);
+		iText(250, 440, "sqrt", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(330, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 445, 25, 100);
+		iText(315, 440, "cubrt", GLUT_BITMAP_HELVETICA_12);
+
+		// 8th row
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(50, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 505, 25, 100);
+		iText(45, 500, "e", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(120, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 505, 25, 100);
+		iText(110, 500, "log", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(190, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 505, 25, 100);
+		iText(183, 500, "pi", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(260, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 505, 25, 100);
+		iText(258, 500, "!", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(330, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 505, 25, 100);
+		iText(310, 500, "Dg/Rd", GLUT_BITMAP_8_BY_13);
+
+		//
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(50, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 565, 25, 100);
+		iText(45, 560, "(", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(120, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 565, 25, 100);
+		iText(120, 560, ")", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(190, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 565, 25, 100);
+		iText(175, 560, "Conv", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(260, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 565, 25, 100);
+		iText(245, 560, "Mode", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(330, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 565, 25, 100);
+		iText(327, 560, "h", GLUT_BITMAP_HELVETICA_18);
+
+		// last row
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(50, 625, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 625, 25, 100);
+		iText(30, 620, "Theme", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(0, 100, 255);
+		iFilledRectangle(85, 600, 200, 50);
+		iSetColor(0, 0, 0);
+		iText(110, 620, "RAWNAKOLATOR", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(21, 71, 52);
+		iFilledCircle(330, 625, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 625, 25, 100);
+		iText(318, 620, "On", GLUT_BITMAP_HELVETICA_18);
+
+		// display
+		iSetColor(59, 2, 38);
+		iFilledRectangle(10, 670, 360, 160);
+	}
+
+	else
+	{
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 85, 25, 100);
+		iText(45, 80, "0", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(120, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 85, 25, 100);
+		iText(120, 80, ".", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(190, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 85, 25, 100);
+		iText(175, 80, "x10", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(260, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 85, 25, 100);
+		iText(246, 80, "Ans", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 85, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 85, 25, 100);
+		iText(325, 80, "=", GLUT_BITMAP_HELVETICA_18);
+
+		// 2nd row
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 145, 25, 100);
+		iText(45, 140, "1", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		;
+		iFilledCircle(120, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 145, 25, 100);
+		iText(115, 140, "2", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(190, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 145, 25, 100);
+		iText(185, 140, "3", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(260, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 145, 25, 100);
+		iText(255, 140, "+", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 145, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 145, 25, 100);
+		iText(325, 140, "-", GLUT_BITMAP_HELVETICA_18);
+		// 3rd row
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 205, 25, 100);
+		iText(45, 200, "4", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(120, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 205, 25, 100);
+		iText(115, 200, "5", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(190, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 205, 25, 100);
+		iText(185, 200, "6", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(260, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 205, 25, 100);
+		iText(255, 200, "X", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 205, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 205, 25, 100);
+		iText(325, 200, "/", GLUT_BITMAP_HELVETICA_18);
+
+		// 4th row
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 265, 25, 100);
+		iText(45, 260, "7", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(120, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 265, 25, 100);
+		iText(115, 260, "8", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(190, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 265, 25, 100);
+		iText(185, 260, "9", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(260, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 265, 25, 100);
+		iText(245, 260, "DEL", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 265, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 265, 25, 100);
+		iText(320, 260, "AC", GLUT_BITMAP_HELVETICA_18);
+
+		// 5th row
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 325, 25, 100);
+		iText(37, 320, "sin", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(120, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 325, 25, 100);
+		iText(107, 320, "cos", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(190, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 325, 25, 100);
+		iText(178, 320, "tan", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(260, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 325, 25, 100);
+		iText(240, 320, "S<=>D", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 325, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 325, 25, 100);
+		iText(320, 320, "ln", GLUT_BITMAP_8_BY_13);
+
+		// 6th row
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 385, 25, 100);
+		iText(37, 380, "x^2", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(120, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 385, 25, 100);
+		iText(107, 380, "x^3", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(190, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 385, 25, 100);
+		iText(178, 380, "x^n", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(260, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 385, 25, 100);
+		iText(245, 380, "x^-1", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 385, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 385, 25, 100);
+		iText(320, 380, "%", GLUT_BITMAP_HELVETICA_18);
+
+		// 7th row
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 445, 25, 100);
+		iText(35, 440, "arcsin", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(120, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 445, 25, 100);
+		iText(100, 440, "arccos", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(190, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 445, 25, 100);
+		iText(173, 440, "arctan", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(260, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 445, 25, 100);
+		iText(250, 440, "sqrt", GLUT_BITMAP_HELVETICA_12);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 445, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 445, 25, 100);
+		iText(315, 440, "cubrt", GLUT_BITMAP_HELVETICA_12);
+
+		// 8th row
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 505, 25, 100);
+		iText(45, 500, "e", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(120, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 505, 25, 100);
+		iText(110, 500, "log", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(190, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 505, 25, 100);
+		iText(183, 500, "pi", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(260, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 505, 25, 100);
+		iText(258, 500, "!", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 505, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 505, 25, 100);
+		iText(310, 500, "Dg/Rd", GLUT_BITMAP_8_BY_13);
+
+		//
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 565, 25, 100);
+		iText(45, 560, "(", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(120, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(120, 565, 25, 100);
+		iText(120, 560, ")", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(190, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(190, 565, 25, 100);
+		iText(175, 560, "Conv", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(260, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(260, 565, 25, 100);
+		iText(245, 560, "Mode", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 565, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 565, 25, 100);
+		iText(327, 560, "h", GLUT_BITMAP_HELVETICA_18);
+
+		// last row
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(50, 625, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(50, 625, 25, 100);
+		iText(30, 620, "Theme", GLUT_BITMAP_8_BY_13);
+
+		iSetColor(0, 100, 255);
+		iFilledRectangle(85, 600, 200, 50);
+		iSetColor(0, 0, 0);
+		iText(110, 620, "RAWNAKOLATOR", GLUT_BITMAP_HELVETICA_18);
+
+		iSetColor(30, 30, 30);
+		iFilledCircle(330, 625, 25, 100);
+		iSetColor(255, 255, 255);
+		iCircle(330, 625, 25, 100);
+		iText(318, 620, "On", GLUT_BITMAP_HELVETICA_18);
+
+		// display
+		iSetColor(59, 2, 38);
+		iFilledRectangle(10, 670, 360, 160);
+		iSetColor(255,255,255);
+		iText(20,690, display_store, GLUT_BITMAP_HELVETICA_12);
+	}
+}
+
+/*
+	function iMouseMove() is called when the user presses and drags the mouse.
+	(mx, my) is the position where the mouse pointer is.
+	*/
+void iMouseMove(int mx, int my)
+{
+	printf("x = %d, y= %d\n", mx, my);
+	// place your codes here
+}
+
+/*
+	function iMouse() is called when the user presses/releases the mouse.
+	(mx, my) is the position where the mouse pointer is.
+	*/
+int i = 0;
+
+void iMouse(int button, int state, int mx, int my)
+{
+	
+	// row 1
+
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+//row 1;
+		if (my>column1 && my<(column1+50) ) {
+			if ((mx > row1 && mx < (row1 + 50))) {
+				display_store[i] = '0';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row2 && mx < (row2 + 50))) {
+				display_store[i] = '.';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row3 && mx < (row3 + 50))) {
+				display_store[i] = '^10';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row4 && mx < (row4 + 50))) {
+				display_store[i] = 'Ans';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row5 && mx < (row5 + 50))) {
+				display_store[i] = '=';
+		display_store[i+1] = 0;
+		i++;
+			}
+		}
+
+		if (my>column2 && my<(column2+50) ) {
+			if ((mx > row1 && mx < (row1 + 50))) {
+				display_store[i] = '1';
+				
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row2 && mx < (row2 + 50))) {
+				display_store[i] = '2';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row3 && mx < (row3 + 50))) {
+				display_store[i] = '3';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row4 && mx < (row4 + 50))) {
+				display_store[i] = '+';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row5 && mx < (row5 + 50))) {
+				display_store[i] = '-';
+		display_store[i+1] = 0;
+		i++;
+			}
+		}
+
+if (my>column3 && my<(column3+50) ) {
+			if ((mx > row1 && mx < (row1 + 50))) {
+				display_store[i] = '4';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row2 && mx < (row2 + 50))) {
+				display_store[i] = '5';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row3 && mx < (row3 + 50))) {
+				display_store[i] = '6';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row4 && mx < (row4 + 50))) {
+				display_store[i] = 'X';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row5 && mx < (row5 + 50))) {
+				display_store[i] = '/';
+		display_store[i+1] = 0;
+		i++;
+			}
+		}
+
+if (my>column4 && my<(column4+50) ) {
+			if ((mx > row1 && mx < (row1 + 50))) {
+				display_store[i] = '7';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row2 && mx < (row2 + 50))) {
+				display_store[i] = '8';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row3 && mx < (row3 + 50))) {
+				display_store[i] = '9';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row4 && mx < (row4 + 50))) {
+				display_store[i] = ' ';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row5 && mx < (row5 + 50))) {
+				display_store[i] = ' ';
+		display_store[i+1] = 0;
+		i++;
+			}
+		}
+
+if (my>column5 && my<(column5+50) ) {
+			if ((mx > row1 && mx < (row1 + 50))) {
+				display_store[i] = 'sin';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row2 && mx < (row2 + 50))) {
+				display_store[i] = 'cos';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row3 && mx < (row3 + 50))) {
+				display_store[i] = 'tan';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row4 && mx < (row4 + 50))) {
+				display_store[i] = ' ';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row5 && mx < (row5 + 50))) {
+				display_store[i] = 'ln';
+		display_store[i+1] = 0;
+		i++;
+			}
+		}
+
+
+if (my>column6 && my<(column6+50) ) {
+			if ((mx > row1 && mx < (row1 + 50))) {
+				display_store[i] = '^2';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row2 && mx < (row2 + 50))) {
+				display_store[i] = '^3';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row3 && mx < (row3 + 50))) {
+				display_store[i] = '^';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row4 && mx < (row4 + 50))) {
+				display_store[i] = '^-1';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row5 && mx < (row5 + 50))) {
+				display_store[i] = '%';
+		display_store[i+1] = 0;
+		i++;
+			}
+		}
+
+
+if (my>column7 && my<(column7+50) ) {
+			if ((mx > row1 && mx < (row1 + 50))) {
+				display_store[i] = 'arcsin';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row2 && mx < (row2 + 50))) {
+				display_store[i] = 'arccos';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row3 && mx < (row3 + 50))) {
+				display_store[i] = 'arctan';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row4 && mx < (row4 + 50))) {
+				display_store[i] = 'sqrt';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row5 && mx < (row5 + 50))) {
+				display_store[i] = 'cbrt';
+		display_store[i+1] = 0;
+		i++;
+			}
+		}
+
+if (my>column8 && my<(column8+50) ) {
+			if ((mx > row1 && mx < (row1 + 50))) {
+				display_store[i] = 'e^';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row2 && mx < (row2 + 50))) {
+				display_store[i] = 'log(10)';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row3 && mx < (row3 + 50))) {
+				display_store[i] = 'pi';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row4 && mx < (row4 + 50))) {
+				display_store[i] = '!';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row5 && mx < (row5 + 50))) {
+				display_store[i] = ' ';
+		display_store[i+1] = 0;
+		i++;
+			}
+		}
+
+
+if (my>column9 && my<(column9+50) ) {
+			if ((mx > row1 && mx < (row1 + 50))) {
+				display_store[i] = '(';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row2 && mx < (row2 + 50))) {
+				display_store[i] = ')';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row3 && mx < (row3 + 50))) {
+				display_store[i] = ' ';
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row4 && mx < (row4 + 50))) {
+				display_store[i] = 'Mode\n1.Light Mode\n2.Dark Mode\n3.Eco Mode';
+				printf("%s %d", display_store, mx);
+		display_store[i+1] = 0;
+		i++;
+			}
+
+			if ((mx > row5 && mx < (row5 + 50))) {
+				display_store[i] = 'cbrt';
+		display_store[i+1] = 0;
+		i++;
+			}
+		}
+
+
+
+	}
+}
+
+/*
+	function iKeyboard() is called whenever the user hits a key in keyboard.
+	key- holds the ASCII value of the key pressed.
+	*/
+void iKeyboard(unsigned char key)
+{
+
+	// place your codes for other keys here
+}
+
+/*
+	function iSpecialKeyboard() is called whenver user hits special keys like-
+	function keys, home, end, pg up, pg down, arraows etc. you have to use
+	appropriate constants to detect them. A list is:
+	GLUT_KEY_F1, GLUT_KEY_F2, GLUT_KEY_F3, GLUT_KEY_F4, GLUT_KEY_F5, GLUT_KEY_F6,
+	GLUT_KEY_F7, GLUT_KEY_F8, GLUT_KEY_F9, GLUT_KEY_F10, GLUT_KEY_F11, GLUT_KEY_F12,
+	GLUT_KEY_LEFT, GLUT_KEY_UP, GLUT_KEY_RIGHT, GLUT_KEY_DOWN, GLUT_KEY_PAGE UP,
+	GLUT_KEY_PAGE DOWN, GLUT_KEY_HOME, GLUT_KEY_END, GLUT_KEY_INSERT
+	*/
+void iSpecialKeyboard(unsigned char key)
+{
+
+	if (key == GLUT_KEY_END)
+	{
+		exit(0);
+	}
+	// place your codes for other keys here
+}
+
+int main()
+{
+	// place your own initialization codes here.
+	iInitialize(screenwidth, screenlength, "Scientific Calculator");
+	iFilledCircle(10, 10, 5, 5);
+	return 0;
+}
