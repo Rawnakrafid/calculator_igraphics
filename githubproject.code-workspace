@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../githubproject"
+		},
+		{
+			"path": "../projectfolder"
+		},
+		{
+			"path": "."
+		}
+	]
+}
